@@ -16,7 +16,7 @@ new Vue({
   },
   methods: {
     async calculate(){
-      let debug = true;
+      let debug = false;
       let people;
       let expenses;
       if (debug){
