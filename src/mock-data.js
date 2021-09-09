@@ -1,4 +1,4 @@
-function calculate(){
+async function calculate(){
   let debug = true;
   let people;
   let expenses;
@@ -241,10 +241,10 @@ function calculate(){
     ];
   }
   else{
-    people = fetch("http:localhost:3000/people")
+    people = await fetch("http:localhost:3000/people")
         .then(data=>{return data.json()})
         .then(res=>{console.log(res)});
-    expenses = fetch("http:localhost:3000/expenses")
+    expenses = await fetch("http:localhost:3000/expenses")
         .then(data=>{return data.json()})
         .then(res=>{console.log(res)});
   }
@@ -366,7 +366,7 @@ function calculate(){
   }
 }
 
-let mock = calculate();
+let mock = await calculate();
 
 export default mock;
 
