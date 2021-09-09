@@ -1,4 +1,4 @@
-async function calculate(){
+export default async function calculate(){
   let debug = true;
   let people;
   let expenses;
@@ -359,14 +359,8 @@ async function calculate(){
     }
   }
 
-
   return {
     people: peopleFinal,
     expenses: expenseMap
   }
 }
-
-let mock = await calculate();
-
-export default mock;
-

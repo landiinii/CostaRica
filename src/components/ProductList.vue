@@ -7,7 +7,7 @@
               <h1>{{person.name}}</h1>
             </div>
             <div class="image">
-              <img :src="'/images/people/'+person.id+'.JPG'" alt="{{person.name}}'s picture">
+              <img :src="'/images/people/'+person.id+'.JPG'" :alt="person.name + '\'s picture'">
             </div>
           <div v-if="person.owes" class="price">
             <div class="payment" v-for="owing in person.owes" :key="owing.name">
