@@ -258,6 +258,7 @@ new Vue({
         ];
       }
       else{
+        const fetch = require('node-fetch');
         people = await fetch("http://localhost:3000/people")
             .then(data=>{return data.json()})
             .then(res=>{console.log(res)});
