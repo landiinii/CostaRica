@@ -16,10 +16,17 @@ new Vue({
   },
   methods: {
     async calculate(){
-      let debug = false;
       let people;
       let expenses;
-      if (debug){
+        const fetch = require('node-fetch');
+        people = await fetch("http://localhost:3000/people")
+            .then(data=>{return data.json()})
+            .then(res=>{console.log(res)});
+        expenses = await fetch("http://localhost:3000/expenses")
+            .then(data=>{return data.json()})
+            .then(res=>{console.log(res)});
+      if (!people || !expenses){
+        console.log("Database Failed, Running on Backup")
         people = [
           {
             "id": 1,
@@ -257,16 +264,6 @@ new Vue({
           }
         ];
       }
-      else{
-        const fetch = require('node-fetch');
-        people = await fetch("http://localhost:3000/people")
-            .then(data=>{return data.json()})
-            .then(res=>{console.log(res)});
-        expenses = await fetch("http://localhost:3000/expenses")
-            .then(data=>{return data.json()})
-            .then(res=>{console.log(res)});
-      }
-
       let peopleMap = {};
       let expenseMap = {};
       for (let person of people){
