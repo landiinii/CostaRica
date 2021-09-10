@@ -17,7 +17,6 @@ export default {
 
 body {
   margin: 50px 100px;
-
 }
 
 .menu-item p {
@@ -31,4 +30,21 @@ body {
   line-height: 15px;
   padding: 4px;
 }
+
+@media only screen and (max-width: 1100px){
+  body {
+    margin: 30px 50px;
+  }
+}
+@media only screen and (max-width: 760px){
+  body {
+    margin: 20px 40px;
+  }
+}
+@media only screen and (max-width: 520px){
+  body {
+    margin: 20px 20px;
+  }
+}
+
 </style>

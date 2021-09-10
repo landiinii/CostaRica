@@ -49,7 +49,7 @@ export default {
   },
   computed: {
     positive() {
-      return this.$root.$data.people.filter(({ owes }) => !owes).sort((a,b) => (a.price > b.price) ? -1 : ((b.price > a.price) ? 1 : 0));
+      return this.$root.$data.people.filter(({owes}) => !owes).sort((a, b) => (a.price > b.price) ? -1 : ((b.price > a.price) ? 1 : 0));
     },
     negative() {
       return this.$root.$data.people.filter(({ owes }) => owes).sort((a,b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0));
@@ -70,7 +70,7 @@ export default {
 }
 
 #menu a {
-  text-decoration: none !important;
+  text-decoration: none;
   color: black;
 }
 
@@ -81,7 +81,7 @@ export default {
 }
 
 #brand img {
-  height: 200px;
+  height: 100%;
 }
 
 #left {
@@ -92,33 +92,80 @@ export default {
 }
 
 #left img {
-  width: 70px;
+  width: 50%;
 }
 
 #left p {
   margin-top: 0;
   padding-top: 0;
   text-align: center;
-  font-size: 20px;
+  font-size: 100%;
 }
 
-form {
-  display: table;
-  width: 100%;
+@media only screen and (max-width: 999px){
+  #menu {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+  #brand img {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+  }
+  #left img {
+    width: 50%;
+    margin: auto;
+  }
+  body {
+    margin: 30px 60px;
+  }
 }
-
-i {
-  display: table-cell;
-  padding-left: 10px;
-  width: 1px;
+@media only screen and (max-width: 750px){
+  #menu {
+    grid-template-columns: 1fr 5fr 1fr;
+  }
+  #left img {
+    width: 65%;
+    margin: auto;
+  }
+  #brand img {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+  }
 }
-
-input {
-  display: table-cell;
-  font-size: 20px;
-  border: none !important;
-  box-shadow: none !important;
-  width: 100%;
-  height: 40px;
+@media only screen and (max-width: 625px){
+  #menu {
+    grid-template-columns: 1fr 6fr 1fr;
+  }
+  #left img {
+    width: 50%;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 500px){
+  #menu {
+    grid-template-columns: 1fr 7fr 1fr;
+  }
+  #left img {
+    width: 30px;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 438px){
+  #brand img {
+    height: 100%;
+    width: 100%;
+  }
+  #left img {
+    width: 25px;
+  }
+  #left p {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 320px){
+  #left p {
+    font-size: 10px;
+  }
 }
 </style>

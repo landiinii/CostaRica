@@ -7,8 +7,10 @@
       </div>
       <div id="left">
         <router-link to="/">
-          <img :src="'/images/logo.png'" alt="Home image">
-          <p>Home</p>
+          <div class="innerLeft">
+            <img :src="'/images/logo.png'" alt="Home image">
+            <p>Home</p>
+          </div>
         </router-link>
       </div>
       <div id="right">
@@ -23,13 +25,13 @@
     </div>
     <div class="breakdown">
       <div v-if="expenses.length > 0" class="expenses">
-        <h2>Expenses</h2>
+        <h2><u>Expenses</u></h2>
         <div class="expenseFor" v-for="expense in expenses" :key="expense.id">
           <p>${{priceDisplay(expense.amount.toString())}} paid to {{listNames(expense.debtors)}} for {{expense.description}}</p>
         </div>
       </div>
       <div class="debts">
-        <h2>Debts</h2>
+        <h2><u>Debts</u></h2>
         <div class="debtsFor" v-for="debt in debts" :key="debt.id">
           <p>${{priceDisplay(debt.amount.toString())}} due to {{debt.payer}} for {{debt.description}}</p>
         </div>
@@ -107,11 +109,11 @@ export default {
 
 .total {
   text-align: center;
-  font-size: 36px;
-}
 
+}
 .total h1 {
  margin: 20px 0;
+  font-size: 350%;
 }
 
 .breakdown {
@@ -128,11 +130,6 @@ export default {
   padding: 5px;
 }
 
-.expenses h2{
-  border: 5px solid black;
-  border-radius: 5px;
-}
-
 .debts {
   text-align: center;
   max-width: 30%;
@@ -140,21 +137,17 @@ export default {
 .debts p {
   padding: 5px;
 }
-.debts h2 {
-  border: 5px solid black;
-  border-radius: 5px;
-}
 
 #menu {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-column-gap: 5px;
   grid-template-areas: "left brand right";
   margin-bottom: 10px;
 }
 
 #menu a {
-  text-decoration: none !important;
+  text-decoration: none;
   color: black;
 }
 
@@ -171,16 +164,15 @@ export default {
 }
 
 #brand img {
-  height: auto;
   padding: 0 30%;
   width: 100%;
-  justify-content: center;
 }
 
 #left {
   grid-area: left;
   display: flex;
   justify-content: flex-start;
+  text-align: center;
 }
 
 #left img {
@@ -192,6 +184,7 @@ export default {
   padding-top: 0;
   text-align: center;
   font-size: 20px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 #right {
@@ -210,6 +203,146 @@ export default {
   padding-top: 0;
   text-align: center;
   font-size: 20px;
+}
+
+
+@media only screen and (max-width: 999px){
+  #menu {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
+  .total h1 {
+    margin: 20px 0;
+    font-size: 350%;
+  }
+  #brand h1 {
+    margin: 0;
+  }
+  #brand img {
+    height: auto;
+    padding: 0 30%;
+    width: 100%;
+  }
+  #left img {
+    width: 50%;
+    margin: auto;
+  }
+  #left p {
+    font-size: 18px;
+  }
+  #right img {
+    width: 50%;
+    margin: auto;
+  }
+  #right p {
+    font-size: 18px;
+  }
+}
+@media only screen and (max-width: 750px){
+  .total h1 {
+    font-size: 300%;
+  }
+  #menu {
+    grid-template-columns: 1fr 5fr 1fr;
+  }
+  #left img {
+    width: 70%;
+    margin: auto;
+  }
+  #brand img {
+    height: 100%;
+    width: 100%;
+    margin: auto;
+  }
+}
+@media only screen and (max-width: 625px){
+  .total h1 {
+    font-size: 250%;
+  }
+  #menu {
+    grid-template-columns: 1fr 6fr 1fr;
+  }
+  #brand img {
+    width: 100%;
+  }
+  #brand h1 {
+    font-size: 24px;
+  }
+  #left img {
+    width: 100%;
+  }
+  #left p {
+    font-size: 16px;
+  }
+  #right img {
+    width: 50%;
+  }
+  #right p {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 500px){
+  .total h1 {
+    font-size: 200%;
+  }
+  #menu {
+    grid-template-columns: 1fr 8fr 1fr;
+  }
+  #brand h1 {
+    font-size: 24px;
+  }
+  #left img {
+    width: 60px;
+  }
+  #left p {
+    font-size: 16px;
+  }
+  #right img {
+    width: 45%;
+  }
+  #right p {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 438px){
+  .total h1 {
+    font-size: 180%;
+  }
+  #brand img {
+    height: 100%;
+    width: 100%;
+  }
+  #left img {
+    width: 40px;
+  }
+  #left p {
+    font-size: 14px;
+  }
+  #right img {
+    width: 35%;
+  }
+  #right p {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 320px){
+  .total h1 {
+    font-size: 150%;
+  }
+  #brand h1 {
+    font-size: 14px;
+  }
+  #left img {
+    width: 30px;
+  }
+  #left p {
+    font-size: 12px;
+  }
+  #right img {
+    width: 30%;
+  }
+  #right p {
+    font-size: 12px;
+  }
 }
 
 </style>

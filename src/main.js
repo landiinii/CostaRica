@@ -7,25 +7,25 @@ new Vue({
   router,
   data() {
     return {
-      people: null,
-      expenses: null
+      people: [],
+      expenses: []
     }
   },
   created() {
-    this.calculate();
+    this.calculate().then();
   },
   methods: {
     async calculate(){
       let people;
       let expenses;
+      try{
         const fetch = require('node-fetch');
-        people = await fetch("http://localhost:3000/people")
-            .then(data=>{return data.json()})
-            .then(res=>{console.log(res)});
-        expenses = await fetch("http://localhost:3000/expenses")
-            .then(data=>{return data.json()})
-            .then(res=>{console.log(res)});
-      if (!people || !expenses){
+        let pdata = await fetch("http://localhost:3000/people");
+        people = await pdata.json();
+        let edata = await fetch("http://localhost:3000/expenses");
+        expenses = await edata.json()
+      }
+      catch(err){
         console.log("Database Failed, Running on Backup")
         people = [
           {
@@ -373,7 +373,7 @@ new Vue({
           toPay[payerIndex]['editPrice'] = Math.round((toPay[payerIndex]['editPrice'] - person['editPrice'])*100)/100;
         }
       }
-
+      console.log(peopleFinal);
       this.people= peopleFinal;
       this.expenses= expenseMap;
     }

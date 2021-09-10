@@ -49,19 +49,21 @@ export default {
 
 .product {
   margin: 10px;
-  width: 200px;
+  max-width: 200px;
 }
 
 .product img {
   border: 2px solid #333;
-  height: 200px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
   object-fit: cover;
 }
 
 .product .image {
   display: flex;
   justify-content: center;
+  width: 200px;
+  height: 200px;
 }
 
 .info {
@@ -69,12 +71,11 @@ export default {
   color: #000;
   padding: 10px 10px;
   height: 40px;
-  align-content: center;
   text-align: center;
 }
 
 .info h1 {
-  font-size: 24px;
+  font-size: 100%;
   margin-top: 0;
   margin-bottom: 15px;
 }
