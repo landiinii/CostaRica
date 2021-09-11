@@ -2,7 +2,6 @@
   <div>
     <div id="menu">
       <div id="brand">
-        <img :src="'/images/people/'+this.$route.params.id+'.JPG'" :alt="name + ' image'">
         <h1>{{name}}</h1>
       </div>
       <div id="left">

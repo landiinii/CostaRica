@@ -15,6 +15,7 @@
         </li>
       </ul>
       <p>As long as everyone gets paid (or pays) their Total amount, it really doesn't matter where the money comes from, so these totals will be used to display on the home screen who should pay who, and how much.</p>
+      <p style="font-size: 70%"><i>btw I used a $1 = 620 colones ratio for everything. If you're not okay with that, get over yourself.</i></p>
     </div>
   </div>
 </template>
@@ -48,8 +49,9 @@ export default {
   box-shadow: 2px 2px 20px 1px;
   overflow-x: auto;
   text-align: center;
-  height: 60%;
-  width: 50%;
+  margin: 30% 10%;
+  height: auto;
+  width: auto;
 }
 
 .modal p{

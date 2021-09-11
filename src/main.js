@@ -261,6 +261,13 @@ new Vue({
             "reciever": "3/14",
             "amount": 20,
             "reason": "Sloth Sanctuary"
+          },
+          {
+            "id": 26,
+            "payer": 1,
+            "reciever": "16",
+            "amount": 40.32,
+            "reason": "Gas"
           }
         ];
       }
