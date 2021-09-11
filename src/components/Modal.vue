@@ -50,6 +50,7 @@ export default {
   overflow-x: auto;
   text-align: center;
   margin: 30% 10%;
+  max-height: 80%;
   height: auto;
   width: auto;
 }
