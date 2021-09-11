@@ -11,11 +11,11 @@
             </div>
           <div v-if="person.owes" class="price">
             <div class="payment" v-for="owing in person.owes" :key="owing.name">
-              <h1>Pays {{owing.name}} ${{owing.amount}}</h1>
+              <h1>Pays {{owing.name}} ${{priceDisplay(owing.amount.toString())}}</h1>
             </div>
           </div>
           <div v-else class="price">
-            <h1>Gets Paid {{person.price}}</h1>
+            <h1>Gets Paid ${{priceDisplay(person.price.toString())}}</h1>
           </div>
         </router-link>
       </div>
@@ -28,6 +28,15 @@ export default {
   name: 'ProductList',
   props: {
     people: Array
+  },
+  methods: {
+    priceDisplay(price){
+      let split = price.split('.');
+      if (split.length > 1 && split[split.length-1].length < 2){
+        price = price + '0'
+      }
+      return price;
+    }
   }
 
 }
